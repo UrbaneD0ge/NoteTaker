@@ -1,17 +1,19 @@
 {
-  "name": "NoteTaker",
+  "name": "notetaker",
   "version": "1.0.0",
-  "description": "",
+  "description": "Express based note-taking utility, through HTML page",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "devStart": "nodemon server.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/UrbaneD0ge/NoteTaker.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "Kip Dunlap",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/UrbaneD0ge/NoteTaker/issues"
@@ -19,5 +21,8 @@
   "homepage": "https://github.com/UrbaneD0ge/NoteTaker#readme",
   "dependencies": {
     "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.13"
   }
 }
