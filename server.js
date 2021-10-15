@@ -18,6 +18,11 @@ app.get('/', (req, res) =>
     res.sendFile(path.join(__dirname, '/public/assets/index.html'))
 );
 
+// GET wildcard for homepage
+app.get('*', (req, res) =>
+  res.sendFile(path.join(__dirname, '/public/index.html'))
+);
+
 // GET route for notes page
 app.get('/', (req, res) =>
     res.sendFile(path.join(__dirname, '/public/assets/notes.html'))
