@@ -1,6 +1,6 @@
 const express = require('express');
 const path = require('path');
-const api = require('./public/assets/js/index');
+const api = require('./routes/index.js');
 
 const PORT = process.env.port || 3001;
 
@@ -15,7 +15,7 @@ app.use(express.static('public'));
 
 // GET route for homepage
 app.get('/', (req, res) =>
-    res.sendFile(path.join(__dirname, '/public/assets/index.html'))
+    res.sendFile(path.join(__dirname, './public/index.html'))
 );
 
 // GET wildcard for homepage
@@ -24,8 +24,8 @@ app.get('*', (req, res) =>
 );
 
 // GET route for notes page
-app.get('/', (req, res) =>
-    res.sendFile(path.join(__dirname, '/public/assets/notes.html'))
+app.get('/notes', (req, res) =>
+    res.sendFile(path.join(__dirname, '/public/notes.html'))
 );
 
 // listen to host port
