@@ -22,7 +22,7 @@ notes.get('/:id', (req, res) => {
 notes.delete('/:id', (req, res) => {
     const notID = req.params.id;
     read('./db/db.json')
-        .then((data)) => JSON.parse(data))
+        .then((data) => JSON.parse(data))
         .then((json) => {
             const fin = json.filter((note) => note.id !== notID);
 
@@ -31,3 +31,19 @@ notes.delete('/:id', (req, res) => {
             res.json(`${notID} deleted.`);
         });
 });
+
+// POST route for new note
+notes.post('/', (req, res) => {
+    console.log(req.body);
+    
+    const { title, text} = req.body;
+    if (req.body) {
+        const newNote = {title, text, id: uuidv4()};
+        readAppend(newNote, './db/db.json');
+        res.json(`Note posted! 📝`);
+    } else {
+        res.error('Error adding note');
+    }
+});
+
+module.exports = notes;
